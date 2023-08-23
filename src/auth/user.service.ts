@@ -12,7 +12,7 @@ export class UserService {
     private userRepository: Repository<UserEntity>
   ) { }
 
-  async findByFields(option: FindOneOptions<UserDto>): Promise<UserDto | undefined> {
+  async findByFields(option: FindOneOptions<UserEntity>): Promise<UserEntity | undefined> {
     return await this.userRepository.findOne(option);
   }
 
@@ -21,7 +21,7 @@ export class UserService {
     console.log(result)
     // console.log(userDto)
 
-    return await this.userRepository.save(userDto)
+    return await this.userRepository.save(userDto);;
   }
 
   async transformPassword(user: UserDto): Promise<void> {
